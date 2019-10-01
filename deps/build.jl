@@ -24,10 +24,10 @@ function datadown(thepath, thefile, theurl)
     end
 end
 
-datadown(_pkg_deps, "plotschema.json",
-         "https://api.plot.ly/v2/plot-schema?sha1")
-datadown(_pkg_assets, "plotly-latest.min.js",
-         "https://cdn.plot.ly/plotly-latest.min.js")
+URL = ENV["JULIA_PKG_SERVER"] * "/binary/PlotlyJS.jl/v0.12.90/plotschema.json"
+datadown(_pkg_deps, "plotschema.json", URL)
+URL = ENV["JULIA_PKG_SERVER"] * "/binary/PlotlyJS.jl/v0.12.90/plotly-latest.min.js"
+datadown(_pkg_assets, "plotly-latest.min.js", URL)
 
 include("make_schema_docs.jl")
 include("find_attr_groups.jl")
