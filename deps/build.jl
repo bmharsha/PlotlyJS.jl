@@ -1,4 +1,4 @@
-using BinaryProvider
+using Pkg
 
 download_info = Dict(
     "CORE_BUNDLE_URL" => ("https://github.com/bmharsha/PlotlyJS.jl/releases/download/v0.12.90/plotly-latest.min.js", "49931a0d14ec3f33e91739836539bc9c6f218024f2dd786349b0b38b3cad436510dc0431dcde4c445fa80ff0ff85b06f74effda3df9932184131d32302cce51d"),
@@ -14,7 +14,7 @@ const _pkg_assets = joinpath(_pkg_root,"assets")
 function datadown(thepath, thefile, theurl)
     filepath = joinpath(thepath, thefile)
     try
-        BinaryProvider.download(theurl, filepath)
+        Pkg.PlatformEngines.download(theurl, filepath)
     catch 
         if isfile(filepath)
             @warn("Failed to update $thefile, but you already have it. Things might continue to work, but if you would like to make sure you have the latest version of $thefile, use may use your web-browser to download it from $theurl and place it in $_pkg_deps.")
@@ -24,9 +24,9 @@ function datadown(thepath, thefile, theurl)
     end
 end
 
-URL = ENV["JULIA_PKG_SERVER"] * "/binary/PlotlyJS.jl/v0.12.90/plotschema.json"
+URL = Pkg.pkg_server() * "/binary/PlotlyJS.jl/v0.12.90/plotschema.json"
 datadown(_pkg_deps, "plotschema.json", URL)
-URL = ENV["JULIA_PKG_SERVER"] * "/binary/PlotlyJS.jl/v0.12.90/plotly-latest.min.js"
+URL = Pkg.pkg_server() * "/binary/PlotlyJS.jl/v0.12.90/plotly-latest.min.js"
 datadown(_pkg_assets, "plotly-latest.min.js", URL)
 
 include("make_schema_docs.jl")

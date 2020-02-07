@@ -1,7 +1,7 @@
 name = "PlotlyJS"
 uuid = "f0f68f2c-4968-5e81-91da-67840de0976a"
 authors = ["Spencer Lyon <spencerlyon2@gmail.com>"]
-version = "0.12.90"
+version = "0.12.91"
 
 [deps]
 Blink = "ad839575-38b3-5650-b840-f874b8c74a25"
@@ -16,7 +16,8 @@ REPL = "3fa0cd96-eef1-5676-8a61-b3b8758bbffb"
 Reexport = "189a3867-3050-52da-a836-e630ba90ab69"
 Requires = "ae029012-a4dd-5104-9daa-d747884805df"
 WebIO = "0f1e0344-ec1d-5b48-a673-e5cf874b6c29"
-BinaryProvider = "b99e7846-7c00-51b0-8f62-c81ae34c0232"
+Pkg = "44cfe95a-1eb2-52ea-b672-e2afdf69b78f"
+
 
 [compat]
 Blink = "≥ 0.8.0"
@@ -25,7 +26,7 @@ JSON = "≥ 0.7.0"
 PlotlyBase = "≥ 0.2.2"
 Reexport = "≥ 0.2.0"
 WebIO = "≥ 0.8.6"
-julia = "≥ 0.7.0"
+julia = "≥ 1.3.1"
 
 [extras]
 Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
