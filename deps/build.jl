@@ -14,6 +14,7 @@ const _pkg_assets = joinpath(_pkg_root,"assets")
 function datadown(thepath, thefile, theurl)
     filepath = joinpath(thepath, thefile)
     try
+        Pkg.PlatformEngines.probe_platform_engines!()
         Pkg.PlatformEngines.download(theurl, filepath)
     catch 
         if isfile(filepath)
